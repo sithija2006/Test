@@ -19,14 +19,11 @@ body{font-family:'Noto Sans Sinhala','Iskoola Pota',system-ui,sans-serif;min-hei
 @keyframes float{50%{transform:translate3d(40px,30px,0) scale(1.12)}}
 .card{max-width:820px;margin:auto;background:rgba(255,255,255,.94);border:1px solid #fff;border-radius:24px;box-shadow:0 20px 60px -20px rgba(5,150,105,.4);overflow:hidden;animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translate3d(0,28px,0)}}
-header{background:linear-gradient(120deg,#065f46,#10b981);color:#fff;padding:26px 32px;display:flex;justify-content:space-between;align-items:center}
-.logo-area{display:flex;gap:16px;align-items:center}
+header{background:linear-gradient(120deg,#065f46,#10b981);color:#fff;padding:26px 32px;display:flex;gap:16px;align-items:center}
 .logo{flex:none;width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:28px;animation:sway 3s ease-in-out infinite}
 @keyframes sway{50%{transform:rotate(-9deg) scale(1.07)}}
 h1{font-size:1.5rem;font-weight:700;line-height:1.35}
 header p{opacity:.92;font-size:.88rem;margin-top:3px;line-height:1.5}
-.nav-btn{background:rgba(255,255,255,.2);color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:10px 16px;border-radius:12px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.88rem;transition:.2s;flex:none}
-.nav-btn:hover{background:rgba(255,255,255,.35)}
 form{padding:28px 32px 32px;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
 .sec{grid-column:1/-1;font-size:1rem;color:var(--g);padding-bottom:7px;border-bottom:2px dashed #a7f3d0;margin-top:8px}
 .sub{grid-column:1/-1;font-size:.85rem;font-weight:600;color:#334155;margin-bottom:-10px}
@@ -96,22 +93,28 @@ input:focus,textarea:focus,select:focus{outline:0;border-color:var(--g2);box-sha
 .btns button{flex:1;min-height:48px;padding:12px;border-radius:12px;border:1.5px solid var(--c);background:#fff;color:var(--c);font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s;touch-action:manipulation}
 .btns .p{background:var(--c);color:#fff}
 .btns button:active{transform:scale(.97)}
-
-/* Admin Dashboard Styles */
-.admin-container{padding:28px 32px;display:none}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
-.stat-card{background:#f8fafc;border:1.5px solid var(--line);padding:18px;border-radius:16px;text-align:center}
-.stat-card h3{font-size:.85rem;color:var(--mut);margin-bottom:8px}
-.stat-card p{font-size:1.4rem;font-weight:700;color:var(--g)}
-.filter-box{margin-bottom:20px}
-.table-wrapper{overflow-x:auto;border:1.5px solid var(--line);border-radius:14px}
-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:600px}
-th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
-th{background:#f1f5f9;color:var(--ink);font-weight:600}
-tr:last-child td{border-bottom:0}
-.loading-admin{text-align:center;padding:40px;color:var(--mut)}
-
 :focus-visible{outline:3px solid #34d399;outline-offset:2px}
+
+/* ===== Tabs + Admin ===== */
+.tabs{display:flex;gap:10px;padding:16px 32px 0}
+.tab{flex:1;min-height:46px;padding:10px;border:1.5px solid var(--line);border-radius:12px;background:#fff;font:inherit;font-size:.95rem;font-weight:600;color:var(--mut);cursor:pointer;touch-action:manipulation;transition:background-color .2s,color .2s,transform .2s}
+.tab.on{background:linear-gradient(120deg,#059669,#10b981);color:#fff;border-color:transparent;box-shadow:0 8px 20px -8px rgba(5,150,105,.7)}
+.tab:active{transform:scale(.98)}
+#admin{padding:24px 32px 32px;display:none;gap:18px;transition:opacity .2s}
+#admin.ld{opacity:.55;pointer-events:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.st{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:14px 10px;text-align:center;animation:rise .5s both}
+.st b{display:block;font-size:1.3rem;color:var(--g);line-height:1.4;word-break:break-word}
+.st span{font-size:.78rem;color:var(--mut);line-height:1.5}
+.sum{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:space-between;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:14px;padding:12px 14px;font-size:.88rem;line-height:1.6}
+.sum b{color:var(--g)}
+.lst{display:grid;gap:10px}
+.it{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:3px;font-size:.84rem;color:#334155;line-height:1.6;animation:rise .4s both}
+.it .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.it strong{font-size:.95rem;color:var(--ink)}
+.it small{color:var(--mut);font-size:.75rem;white-space:nowrap}
+.emp{text-align:center;color:var(--mut);padding:24px 0;font-size:.9rem}
+
 @media(hover:hover){.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(5,150,105,.75)}.btns button:hover{transform:translateY(-2px);box-shadow:0 8px 18px -8px var(--c)}}
 @media(min-width:641px){.card{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(255,255,255,.88)}.ov{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}}
 @media(max-width:640px){
@@ -119,9 +122,7 @@ tr:last-child td{border-bottom:0}
   .blob{filter:blur(40px);animation:none}
   .card{border-radius:20px}
   form{padding:20px 16px 22px;gap:14px}
-  header{padding:18px 16px;gap:10px;flex-direction:column;align-items:stretch}
-  .logo-area{gap:12px}
-  .nav-btn{width:100%;text-align:center}
+  header{padding:20px 16px;gap:12px}
   .logo{width:48px;height:48px;font-size:24px}
   h1{font-size:1.25rem}
   .f{grid-column:1/-1}.f.third{grid-column:span 2}
@@ -131,6 +132,9 @@ tr:last-child td{border-bottom:0}
   #toasts{top:calc(10px + env(safe-area-inset-top));left:12px;right:12px;width:auto}
   .md{padding:26px 18px 18px;border-radius:20px}
   .btns{flex-direction:column-reverse}
+  .tabs{padding:12px 16px 0}
+  #admin{padding:20px 16px 22px}
+  .st b{font-size:1.1rem}
 }
 @media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition:none!important}}
 </style>
@@ -140,65 +144,20 @@ tr:last-child td{border-bottom:0}
 <div id="toasts" aria-live="polite"></div>
 <main class="card">
   <header>
-    <div class="logo-area">
-      <div class="logo">🌿</div>
-      <div>
-        <h1 id="pageTitle">ගොවි දත්ත පෝරමය</h1>
-        <p id="pageSub">කරුණාකර නිවැරදි තොරතුරු ඇතුළත් කරන්න. * ලකුණ අනිවාර්ය වේ.</p>
-      </div>
-    </div>
-    <button class="nav-btn" id="navBtn" onclick="toggleAdmin()">පරිපාලක පුවරුව</button>
+    <div class="logo">🌿</div>
+    <div><h1>ගොවි දත්ත පෝරමය</h1><p>කරුණාකර නිවැරදි තොරතුරු ඇතුළත් කරන්න. * ලකුණ අනිවාර්ය වේ.</p></div>
   </header>
-
-  <!-- Form View -->
-  <form id="form" novalidate></form>
-
-  <!-- Admin View -->
-  <div id="adminView" class="admin-container">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <h3>සමස්ත අයැදුම්පත්</h3>
-        <p id="statTotalApps">0</p>
-      </div>
-      <div class="stat-card">
-        <h3>අනුමත මුළු මුදල (රු.)</h3>
-        <p id="statTotalAmount">0.00</p>
-      </div>
-      <div class="stat-card">
-        <h3>අද දින අයැදුම්පත්</h3>
-        <p id="statTodayApps">0</p>
-      </div>
-    </div>
-
-    <div class="filter-box">
-      <label for="divisionFilter">පො.ස,නි කොට්ටාසය අනුව පෙරීම:</label>
-      <select id="divisionFilter" onchange="filterRecords()">
-        <option value="">සියලුම කොට්ටාස</option>
-      </select>
-    </div>
-
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>දිනය</th>
-            <th>ගොවියාගේ නම</th>
-            <th>ජා.හැ.ප. අංකය</th>
-            <th>කොට්ටාසය</th>
-            <th>ඉල්ලු මුදල (රු.)</th>
-            <th>අනුමත මුදල (රු.)</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <tr><td colspan="6" class="loading-admin">දත්ත පූරණය වෙමින් පවතී...</td></tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="tabs">
+    <button type="button" class="tab on" id="tabForm">📝 දත්ත ඇතුළත් කිරීම</button>
+    <button type="button" class="tab" id="tabAdmin">📊 Admin</button>
   </div>
+  <form id="form" novalidate></form>
+  <section id="admin"></section>
 </main>
 
 <script>
-const API = 'https://script.google.com/macros/s/AKfycbxJFD-WUVvkziU6h-zQ7tRH3uXHnWUtzTzgXqgfvlQzdvUurQrA0vD1QfGgx_iWbr3e/exec';
+// ===== Google Apps Script Web App URL (Deploy කළ පසු අලුත් URL එක මෙතැන දමන්න) =====
+const API = 'https://script.google.com/macros/s/AKfycbzQ7AHejh6A22fdxFmrZbte66gFiLEuBVGMQfPUnzvvCxNLqnGMbN6ABwm6sCv1KNoD/exec';
 
 const $ = s => document.querySelector(s);
 const h = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
@@ -210,17 +169,18 @@ const IC = {
 const svg = k => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
 
 // ===== Validation =====
-const mobileFix = v => v.replace(/[\s-]/g, '').replace(/^(?:\+94|0094|94)(7\d{8})\$/, '0\$1');
-const mobileOk = v => /^07[01245678]\d{7}\$/.test(v);
+const mobileFix = v => v.replace(/[\s-]/g, '').replace(/^(?:\+94|0094|94)(7\d{8})$/, '0$1');
+const mobileOk = v => /^07[01245678]\d{7}$/.test(v);
 function nicOk(v) {
   let m, y, d;
-  if (m = v.match(/^(\d{2})(\d{3})\d{4}[VX]\$/)) { y = 1900 + +m[1]; d = +m[2]; }
-  else if (m = v.match(/^(\d{4})(\d{3})\d{5}\$/)) { y = +m[1]; d = +m[2]; }
+  if (m = v.match(/^(\d{2})(\d{3})\d{4}[VX]$/)) { y = 1900 + +m[1]; d = +m[2]; }
+  else if (m = v.match(/^(\d{4})(\d{3})\d{5}$/)) { y = +m[1]; d = +m[2]; }
   else return false;
-  if (d > 500) d -= 500;
+  if (d > 500) d -= 500; // ගැහැණු
   return y >= 1900 && y <= new Date().getFullYear() && d >= 1 && d <= 366;
 }
 
+// d = ඉලක්කම් පමණක් (ටයිප් කළ ආකාරයටම යැවේ), ml = උපරිම ඉලක්කම් ගණන
 const F = [
   { s: '🧾 සහනාධාර විස්තර' },
   { id: 'subsidyName', l: 'පොහොර සහනාධාරයේ නම', r: 1, t: 'select', full: 1, ph: '-- තෝරන්න --', opts: ['පොහොර හා ඩොලමයිට්', 'ඩොලමයිට්'], e: 'පොහොර සහනාධාරයේ නම තෝරන්න.' },
@@ -273,10 +233,10 @@ F.forEach((f, i) => {
   inp.addEventListener('change', () => { inp.dataset.t = 1; check(f); });
   inp.addEventListener('input', () => {
     if (f.id === 'nicNumber') inp.value = inp.value.toUpperCase();
-    if (f.d) { inp.value = inp.value.replace(/\D/g, ''); inp.dataset.t = 1; }
+    if (f.d) { inp.value = inp.value.replace(/\D/g, ''); inp.dataset.t = 1; } // ඉලක්කම් නොවන ඒවා ඉවත් කරයි
     if (inp.dataset.t) check(f);
   });
-  if (f.n) inp.addEventListener('wheel', () => inp.blur(), { passive: true });
+  if (f.n) inp.addEventListener('wheel', () => inp.blur(), { passive: true }); // scroll කරද්දී අගය වෙනස් නොවීමට
 });
 form.insertAdjacentHTML('beforeend', '<button class="btn" id="btn" type="submit"><span class="t">දත්ත යොමු කරන්න</span><span class="sp"></span></button>');
 
@@ -285,7 +245,7 @@ function msg(f, v) {
   if (!v) return f.r ? f.e : '';
   if (f.v && !f.v(v)) return f.ve;
   if (f.d) {
-    if (!/^\d+\$/.test(v)) return 'ඉලක්කම් පමණක් ඇතුළත් කරන්න.';
+    if (!/^\d+$/.test(v)) return 'ඉලක්කම් පමණක් ඇතුළත් කරන්න.';
     if (f.max != null && +v > f.max) return `0 සිට ${f.max} අතර අගයක් ඇතුළත් කරන්න.`;
   }
   if (f.n) {
@@ -330,91 +290,6 @@ function modal({ t, title, text, rows, btns }) {
   ov.onclick = e => { if (e.target === ov) close(); };
   document.body.append(ov);
   bb.querySelector('.p, button').focus({ preventScroll: true });
-}
-
-// ===== Admin Toggle & Logic =====
-let isAdminOpen = false;
-let allRecords = [];
-
-function toggleAdmin() {
-  isAdminOpen = !isAdminOpen;
-  const formEl = $('#form');
-  const adminEl = $('#adminView');
-  const btnEl = $('#navBtn');
-  const titleEl = $('#pageTitle');
-  const subEl = $('#pageSub');
-
-  if (isAdminOpen) {
-    formEl.style.display = 'none';
-    adminEl.style.display = 'block';
-    btnEl.textContent = 'පෝරමයට යන්න';
-    titleEl.textContent = 'පරිපාලක පුවරුව (Admin Dashboard)';
-    subEl.textContent = 'සමස්ත සංඛ්‍යාලේඛන සහ අයැදුම්පත් ලැයිස්තුව';
-    fetchAdminData();
-  } else {
-    formEl.style.display = 'grid';
-    adminEl.style.display = 'none';
-    btnEl.textContent = 'පරිපාලක පුවරුව';
-    titleEl.textContent = 'ගොවි දත්ත පෝරමය';
-    subEl.textContent = 'කරුණාකර නිවැරදි තොරතුරු ඇතුළත් කරන්න. * ලකුණ අනිවාර්ය වේ.';
-  }
-}
-
-async function fetchAdminData() {
-  try {
-    const res = await fetch(API);
-    const data = await res.json();
-    if (data.status === 'ok') {
-      $('#statTotalApps').textContent = data.stats.totalApps;
-      $('#statTotalAmount').textContent = Number(data.stats.totalAmount).toLocaleString('en-US', {minimumFractionDigits: 2});
-      $('#statTodayApps').textContent = data.stats.todayApps;
-
-      const sel = $('#divisionFilter');
-      sel.innerHTML = '<option value="">සියලුම කොට්ටාස</option>';
-      data.stats.divisions.forEach(div => {
-        sel.append(new Option(div, div));
-      });
-
-      allRecords = data.records;
-      renderTable(allRecords);
-    } else {
-      toast('error', 'දෝෂයක්', 'දත්ත ලබාගැනීමට නොහැකි විය.');
-    }
-  } catch (err) {
-    console.error(err);
-    toast('error', 'දෝෂයක්', 'අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කරන්න.');
-  }
-}
-
-function renderTable(recs) {
-  const tbody = $('#tableBody');
-  tbody.innerHTML = '';
-  if (recs.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" class="loading-admin">වාර්තා හමු නොවීය</td></tr>';
-    return;
-  }
-  recs.forEach(r => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${r.timestamp || ''}</td>
-      <td>${r.farmerName || ''}</td>
-      <td>${r.nicNumber || ''}</td>
-      <td>${r.psNiDivision || '—'}</td>
-      <td>Rs. ${Number(r.requestedAmount || 0).toLocaleString()}</td>
-      <td>Rs. ${Number(r.approvedAmount || 0).toLocaleString()}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-function filterRecords() {
-  const selDiv = $('#divisionFilter').value;
-  if (!selDiv) {
-    renderTable(allRecords);
-  } else {
-    const filtered = allRecords.filter(r => (r.psNiDivision || '').trim() === selDiv);
-    renderTable(filtered);
-  }
 }
 
 // ===== Submit =====
@@ -475,6 +350,97 @@ async function send(force) {
     console.error('Submit failed:', err);
     toast('error', 'දෝෂයක් සිදු විය', err.m || ERR[err.k] || ERR.net);
   } finally { clearTimeout(timer); b.classList.remove('load'); b.disabled = false; }
+}
+
+// ===== Admin Dashboard =====
+const adm = $('#admin'), tabF = $('#tabForm'), tabA = $('#tabAdmin');
+let pin = '', rows = [], selDiv = '';
+const NONE = 'කොට්ටාසය නොමැති';
+const money = n => 'රු. ' + n.toLocaleString('en-LK', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const sum = (a, k) => a.reduce((s, x) => s + (+x[k] || 0), 0);
+const line = t => h('div', '', t);
+
+function show(isAdmin) {
+  tabF.classList.toggle('on', !isAdmin); tabA.classList.toggle('on', isAdmin);
+  form.style.display = isAdmin ? 'none' : '';
+  adm.style.display = isAdmin ? 'grid' : 'none';
+  if (isAdmin) pin ? load(pin) : login();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+tabF.onclick = () => show(false);
+tabA.onclick = () => show(true);
+
+function login() {
+  adm.replaceChildren();
+  const box = h('div'), lb = h('label', '', '🔐 Admin PIN අංකය'); lb.htmlFor = 'pin';
+  const w = h('div', 'w'), i = h('input');
+  i.id = 'pin'; i.type = 'password'; i.autocomplete = 'off'; i.placeholder = 'PIN අංකය ඇතුළත් කරන්න';
+  w.append(i); box.append(lb, w);
+  const bt = h('button', 'btn', 'ඇතුල් වන්න'); bt.type = 'button';
+  adm.append(box, bt);
+  const go = () => i.value.trim() ? load(i.value.trim()) : toast('warning', 'අවවාදයයි', 'PIN අංකය ඇතුළත් කරන්න.');
+  bt.onclick = go;
+  i.onkeydown = e => e.key === 'Enter' && go();
+  i.focus({ preventScroll: true });
+}
+
+async function load(p) {
+  adm.classList.add('ld');
+  try {
+    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'admin', pin: p }) });
+    const j = await r.json();
+    if (j.status === 'ok') { pin = p; rows = j.rows || []; render(); }
+    else if (j.status === 'denied') { pin = ''; toast('error', 'PIN වැරදියි', 'නිවැරදි Admin PIN අංකය ඇතුළත් කරන්න.'); login(); }
+    else throw 0;
+  } catch (e) {
+    toast('error', 'දෝෂයක් සිදු විය', 'දත්ත ලබාගත නොහැකි විය. Apps Script එක අලුත් version එකක් ලෙස Deploy කර ඇත්දැයි පරීක්ෂා කරන්න.');
+    if (!pin) login();
+  } finally { adm.classList.remove('ld'); }
+}
+
+function render() {
+  adm.replaceChildren();
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Colombo' });
+  const todayN = rows.filter(r => String(r.date).slice(0, 10) === today).length;
+
+  const st = h('div', 'stats');
+  [['මුළු අයදුම්පත් ගණන', rows.length], ['අද දින අයදුම්පත් ගණන', todayN],
+   ['මුළු ඉල්ලු මුදල', money(sum(rows, 'req'))], ['මුළු අනුමත මුදල', money(sum(rows, 'app'))]
+  ].forEach(([a, b], k) => { const d = h('div', 'st'); d.style.animationDelay = k * 60 + 'ms'; d.append(h('b', '', b), h('span', '', a)); st.append(d); });
+
+  const cnt = {};
+  rows.forEach(r => { const k = r.ps || NONE; cnt[k] = (cnt[k] || 0) + 1; });
+  const names = Object.keys(cnt).sort((a, b) => a.localeCompare(b, 'si'));
+  if (selDiv && !cnt[selDiv]) selDiv = '';
+  const box = h('div'), lb = h('label', '', 'පො.ස,නි කොට්ටාසය අනුව බලන්න'); lb.htmlFor = 'psSel';
+  const w = h('div', 'w'), s = h('select'); s.id = 'psSel';
+  s.append(new Option(`සියලුම කොට්ටාස (${rows.length})`, ''));
+  names.forEach(n => s.append(new Option(`${n} (${cnt[n]})`, n)));
+  s.value = selDiv;
+  s.onchange = () => { selDiv = s.value; render(); };
+  w.append(s); box.append(lb, w);
+
+  const list = rows.filter(r => !selDiv || (r.ps || NONE) === selDiv).slice().reverse();
+  const sm = h('div', 'sum');
+  const a = h('span'); a.append(h('b', '', selDiv || 'සියලුම කොට්ටාස'), document.createTextNode(` — අයදුම්පත් ගණන: ${list.length}`));
+  sm.append(a, h('span', '', `ඉල්ලු: ${money(sum(list, 'req'))} · අනුමත: ${money(sum(list, 'app'))}`));
+
+  const ls = h('div', 'lst');
+  if (!list.length) ls.append(h('div', 'emp', 'අයදුම්පත් කිසිවක් නොමැත.'));
+  list.forEach((r, k) => {
+    const it = h('div', 'it'); it.style.animationDelay = Math.min(k, 10) * 30 + 'ms';
+    const top = h('div', 'top'); top.append(h('strong', '', r.name || '—'), h('small', '', String(r.date || '').slice(0, 16)));
+    it.append(top,
+      line(`NIC: ${r.nic || '—'} · 📞 ${r.mobile || '—'}`),
+      line(`ග්‍රාමසේවා වසම: ${r.gs || '—'} · පො.ස,නි: ${r.ps || '—'}`),
+      line(`ගොනු අංකය: ${r.file || '—'} · ${r.subsidy || '—'}`),
+      line(`ඉල්ලු: ${money(+r.req || 0)} · අනුමත: ${money(+r.app || 0)}`));
+    ls.append(it);
+  });
+
+  const rf = h('button', 'tab', '🔄 නැවුම් කරන්න'); rf.type = 'button';
+  rf.onclick = () => load(pin);
+  adm.append(st, box, sm, ls, rf);
 }
 </script>
 </body>
